@@ -25,13 +25,15 @@ def run_game():
     aliens = Group()
 
     # create the fleet of aliens
-    gf.create_fleet(ai_settings, screen, aliens)
+    gf.create_fleet(ai_settings, screen, ship, aliens)
 
     # start the main loop for the game
     while True:
         gf.check_events(ai_settings, screen, ship, bullets)
         ship.update()
         gf.update_bullets(bullets)
+        # update aliens after bullets have been updated b/c we need to check if bullets hit any aliens
+        gf.update_aliens(ai_settings, aliens)
         gf.update_screen(ai_settings,screen, ship, aliens, bullets)
 
 
