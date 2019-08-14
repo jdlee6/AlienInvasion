@@ -10,10 +10,13 @@ class Settings():
         
         # Ship Settings (1.5 px instead of 1 px)
         self.ship_speed_factor = 1.5
+        self.ship_limit = 3
 
         # Bullet Settings
-        self.bullet_speed_factor = 1
-        self.bullet_width = 3
+        # # default = 1
+        self.bullet_speed_factor = 3
+        # # default = 3
+        self.bullet_width = 500
         self.bullet_height = 15
         self.bullet_color = (60, 60, 60)
         self.bullets_allowed = 3
@@ -21,6 +24,7 @@ class Settings():
         # Alien Settings
         self.alien_speed_factor = 1
         # controls how quickly the fleet drops down the screen each time an alien reaches either edge
-        self.fleet_drop_speed = 10
+        # # default value 10
+        self.fleet_drop_speed = 100
         # fleet_direction of 1 represents right; -1 represents left
         self.fleet_direction = 1
