@@ -33,11 +33,17 @@ def run_game():
 
     # start the main loop for the game
     while True:
+        # this is still in the main loop because we want to know if the player presses Q to quit or clicks a button to close the window
         gf.check_events(ai_settings, screen, ship, bullets)
-        ship.update()
-        gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
-        # update aliens after bullets have been updated b/c we need to check if bullets hit any aliens
-        gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+
+        # these functions are called only when the game is active
+        if stats.game_active:
+            ship.update()
+            gf.update_bullets(ai_settings, screen, ship, aliens, bullets)
+            # update aliens after bullets have been updated b/c we need to check if bullets hit any aliens
+            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+
+        # continue updating the screen so we can make changes to the screen while waiting to see whether the player chooses to start a new game
         gf.update_screen(ai_settings,screen, ship, aliens, bullets)
 
 
