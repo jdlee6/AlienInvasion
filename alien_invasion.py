@@ -9,6 +9,7 @@ import pygame
 from pygame.sprite import Group
 from settings import Settings
 from game_stats import GameStats
+from button import Button
 from ship import Ship
 import game_functions as gf
 
@@ -19,6 +20,9 @@ def run_game():
     ai_settings = Settings()
     screen = pygame.display.set_mode((ai_settings.screen_width, ai_settings.screen_height))
     pygame.display.set_caption("Alien Invasion")
+    
+    # Make the Play button
+    play_button = Button(ai_settings, screen, "Play")
 
     # create an instance to store game statistics
     stats = GameStats(ai_settings)
@@ -44,7 +48,7 @@ def run_game():
             gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
 
         # continue updating the screen so we can make changes to the screen while waiting to see whether the player chooses to start a new game
-        gf.update_screen(ai_settings,screen, ship, aliens, bullets)
+        gf.update_screen(ai_settings, screen, stats, ship, aliens, bullets, play_button)
 
 
 run_game()
