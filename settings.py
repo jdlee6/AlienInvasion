@@ -28,3 +28,27 @@ class Settings():
         self.fleet_drop_speed = 10
         # fleet_direction of 1 represents right; -1 represents left
         self.fleet_direction = 1
+
+        # How quickly the game speeds up 
+        # 2 will double the game speed every new level; 1 will keep the speed constant
+        # 1.1 should increase the speed enough
+        self.speedup_scale = 1.1
+        # initializes the values for attributes that need to change throughout the course of a game
+        self.initialize_dynamic_settings()
+    
+
+    def initialize_dynamic_settings(self):
+        ''' Initialize settings that change throughout the game '''
+        self.ship_speed_factor = 1.5
+        self.bullet_speed_factor = 3
+        self.alien_speed_factor = 1
+
+        # fleet_direction of 1 represents right; -1 represents left
+        self.fleet_direction = 1
+
+    
+    def increase_speed(self):
+        ''' Increase speed settings '''
+        self.ship_speed_factor *= self.speedup_scale
+        self.bullet_speed_factor *= self.speedup_scale
+        self.alien_speed_factor *= self.speedup_scale
