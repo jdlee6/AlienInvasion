@@ -40,7 +40,7 @@ def run_game():
     # start the main loop for the game
     while True:
         # this is still in the main loop because we want to know if the player presses Q to quit or clicks a button to close the window
-        gf.check_events(ai_settings, screen, stats, play_button, ship, aliens, bullets)
+        gf.check_events(ai_settings, screen, stats, sb, play_button, ship, aliens, bullets)
 
         # these functions are called only when the game is active
         if stats.game_active:
