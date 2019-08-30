@@ -47,7 +47,7 @@ def run_game():
             ship.update()
             gf.update_bullets(ai_settings, screen, stats, sb, ship, aliens, bullets)
             # update aliens after bullets have been updated b/c we need to check if bullets hit any aliens
-            gf.update_aliens(ai_settings, stats, screen, ship, aliens, bullets)
+            gf.update_aliens(ai_settings, stats, screen, sb, ship, aliens, bullets)
 
         # continue updating the screen so we can make changes to the screen while waiting to see whether the player chooses to start a new game
         gf.update_screen(ai_settings, screen, stats, sb, ship, aliens, bullets, play_button)
